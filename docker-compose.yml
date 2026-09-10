@@ -1,0 +1,68 @@
+services:
+
+  api1:
+
+    build: ./api
+
+    container_name: api1
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      MESSAGE: ${MESSAGE}
+
+
+
+  api2:
+
+    build: ./api
+
+    container_name: api2
+
+    ports:
+      - "3001:3000"
+
+    environment:
+      MESSAGE: ${MESSAGE}
+
+
+
+  api3:
+
+    build: ./api
+
+    container_name: api3
+
+    ports:
+      - "3002:3000"
+
+    environment:
+      MESSAGE: ${MESSAGE}
+
+
+
+  postgres:
+
+    image: postgres:16
+
+    container_name: postgres-db
+
+    environment:
+
+      POSTGRES_USER: ${POSTGRES_USER}
+
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+      POSTGRES_DB: ${POSTGRES_DB}
+
+
+    volumes:
+
+      - postgres_data:/var/lib/postgresql/data
+
+
+
+volumes:
+
+  postgres_data:
