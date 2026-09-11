@@ -8,7 +8,7 @@ const PORT = 3000;
 
 const MESSAGE = process.env.MESSAGE || "Hola Docker";
 
-
+docker compose down
 app.get("/", (req,res)=>{
 
     res.json({
